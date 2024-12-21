@@ -11,24 +11,24 @@ This document provides a detailed API documentation for the **Mofa’s Kitchen B
 - **Method**: `POST`
 - **Description**: Add a new ingredient to the user's inventory.
 - **Sample Payload**:
-  \`\`\`json
+  ```json
   {
   "name": "Egg",
   "quantity": "5 eggs",
   "category": "Dairy",
   "expiry_date": "2024-12-31"
   }
-  \`\`\`
+  ```
 - **Sample Response**:
-  \`\`\`json
+  ```json
   {
-  "\_id": "60a7f7cda76fae60ec3f7f4e",
+  "_id": "60a7f7cda76fae60ec3f7f4e",
   "name": "Egg",
   "quantity": "5 eggs",
   "category": "Dairy",
   "expiry_date": "2024-12-31"
   }
-  \`\`\`
+  ```
 
 ---
 
@@ -37,22 +37,22 @@ This document provides a detailed API documentation for the **Mofa’s Kitchen B
 - **Method**: `PUT`
 - **Description**: Update an existing ingredient’s details (e.g., quantity or expiry date).
 - **Sample Payload**:
-  \`\`\`json
+  ```json
   {
   "quantity": "3 eggs",
   "expiry_date": "2024-12-30"
   }
-  \`\`\`
+  ```
 - **Sample Response**:
-  \`\`\`json
+  ```json
   {
-  "\_id": "60a7f7cda76fae60ec3f7f4e",
+  "_id": "60a7f7cda76fae60ec3f7f4e",
   "name": "Egg",
   "quantity": "3 eggs",
   "category": "Dairy",
   "expiry_date": "2024-12-30"
   }
-  \`\`\`
+  ```
 
 ---
 
@@ -61,7 +61,7 @@ This document provides a detailed API documentation for the **Mofa’s Kitchen B
 - **Method**: `POST`
 - **Description**: Add a new recipe to the system.
 - **Sample Payload**:
-  \`\`\`json
+  ```json
   {
   "name": "Pancakes",
   "cuisine": "American",
@@ -70,11 +70,11 @@ This document provides a detailed API documentation for the **Mofa’s Kitchen B
   "taste": "Sweet",
   "reviews": "4.5/5"
   }
-  \`\`\`
+  ```
 - **Sample Response**:
-  \`\`\`json
+  ```json
   {
-  "\_id": "60a7f7cda76fae60ec3f7f4f",
+  "_id": "60a7f7cda76fae60ec3f7f4f",
   "name": "Pancakes",
   "cuisine": "American",
   "ingredients": ["Egg", "Flour", "Milk", "Sugar"],
@@ -82,7 +82,7 @@ This document provides a detailed API documentation for the **Mofa’s Kitchen B
   "taste": "Sweet",
   "reviews": "4.5/5"
   }
-  \`\`\`
+  ```
 
 ---
 
@@ -91,16 +91,16 @@ This document provides a detailed API documentation for the **Mofa’s Kitchen B
 - **Method**: `POST`
 - **Description**: Suggest recipes based on available ingredients.
 - **Sample Payload**:
-  \`\`\`json
+  ```json
   {
   "ingredients": ["Egg", "Flour", "Sugar"]
   }
-  \`\`\`
+  ```
 - **Sample Response**:
-  \`\`\`json
+  ```json
   [
   {
-  "\_id": "60a7f7cda76fae60ec3f7f4f",
+  "_id": "60a7f7cda76fae60ec3f7f4f",
   "name": "Pancakes",
   "cuisine": "American",
   "ingredients": ["Egg", "Flour", "Sugar"],
@@ -109,7 +109,7 @@ This document provides a detailed API documentation for the **Mofa’s Kitchen B
   "reviews": "4.5/5"
   }
   ]
-  \`\`\`
+  ```
 
 ---
 
@@ -118,17 +118,17 @@ This document provides a detailed API documentation for the **Mofa’s Kitchen B
 - **Method**: `POST`
 - **Description**: Interact with the chatbot to suggest recipes based on user preferences.
 - **Sample Payload**:
-  \`\`\`json
+  ```json
   {
   "user_message": "I want something sweet today"
   }
-  \`\`\`
+  ```
 - **Sample Response**:
-  \`\`\`json
+  ```json
   {
   "message": "How about making Pancakes? They're sweet and quick to prepare!"
   }
-  \`\`\`
+  ```
 
 ---
 
@@ -151,45 +151,23 @@ This document provides a detailed API documentation for the **Mofa’s Kitchen B
 
 ---
 
-## How to Run the Application
-
-1. Clone the repository:
-   \`\`\`bash
-   git clone https://github.com/username/kitchen-buddy.git
-   cd kitchen-buddy
-   \`\`\`
-
-2. Install dependencies:
-   \`\`\`bash
-   npm install
-   \`\`\`
-
-3. Start the server:
-   \`\`\`bash
-   npm start
-   \`\`\`
-
-4. The application will run on `http://localhost:3000`.
-
----
-
 ## Example Usage
 
 ### Add Ingredients
 
-\`\`\`bash
+```bash
 curl -X POST http://localhost:3000/ingredients \
 -H "Content-Type: application/json" \
 -d '{"name": "Egg", "quantity": "5 eggs", "category": "Dairy", "expiry_date": "2024-12-31"}'
-\`\`\`
+```
 
 ### Suggest Recipe
 
-\`\`\`bash
+```bash
 curl -X POST http://localhost:3000/suggest-recipe \
 -H "Content-Type: application/json" \
 -d '{"ingredients": ["Egg", "Flour", "Sugar"]}'
-\`\`\`
+```
 
 ---
 
@@ -200,9 +178,3 @@ curl -X POST http://localhost:3000/suggest-recipe \
 - **MongoDB**: NoSQL database for storing ingredients and recipes
 - **Mongoose**: MongoDB object modeling for Node.js
 - **OpenAI GPT-3**: For integrating the chatbot functionality
-
----
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
